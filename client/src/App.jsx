@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Main, UploadPhone, UploadDroneRGB, Login, CreateAccount, Dashboard, Satellite, Help, UploadDroneSegment, History, Drone, UploadDroneLidar } from './pages';
+import { Main, UploadDroneRGB, Login, CreateAccount, Dashboard, Satellite, Help, History, Drone } from './pages';
 import { Navbar, Footer, Alert } from './components';
 import { help, helpGround, helpDroneRGB, helpCoordinates } from './constants';
 
@@ -21,11 +21,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Main />}></Route>
 
-            <Route path="/upload/phone" element={<UploadPhone setAlert={setAlert} />}></Route>
             <Route path="/upload/drone" element={<Drone setAlert={setAlert} />}></Route>
             <Route path="/upload/drone/rgb" element={<UploadDroneRGB setAlert={setAlert} />}></Route>
-            <Route path="/upload/drone/seg" element={<UploadDroneSegment setAlert={setAlert} />}></Route>
-            <Route path="/upload/drone/lidar" element={<UploadDroneLidar setAlert={setAlert} />}></Route>
             <Route path="/upload/satellite" element={<Satellite setAlert={setAlert} />}></Route>
 
             <Route path="/help" element={<Help title={"What do you need help with?"} list={help} />}></Route>
