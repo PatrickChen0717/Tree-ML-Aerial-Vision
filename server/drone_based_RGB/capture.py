@@ -3,6 +3,12 @@ from PIL import Image
 import io
 import math
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+env_path = Path(__file__).resolve().parents[2] / '.env'
+load_dotenv(dotenv_path=env_path)
+
+API_KEY = os.getenv('API_KEY')
 
 def get_lat_lon_offset(lat, zoom, tile_size=640):
     """Calculate proper lat/lon offsets using Google Maps Web Mercator projection."""
@@ -21,8 +27,6 @@ def get_lat_lon_offset(lat, zoom, tile_size=640):
     return lat_offset, lon_offset
 
 def capture_gmap(save_dir, LAT, LON, GRID_SIZE = 4):
-    API_KEY = "AIzaSyBoG58gmt5sB4p6dmwZBz40Doa_xn8zkks"
-
     ZOOM = 19
     MAPTYPE = "satellite"
     TILE_SIZE = 640

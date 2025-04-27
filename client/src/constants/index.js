@@ -1,7 +1,7 @@
 import { phone_icon_green, drone_icon_green, coords, history_icon, satellite_icon_green, grid_icon, lidar_icon, tree_icon } from "../assets/icons";
 import { good_example, bad_example_busy, bad_example_size, toggle_partial, toggle_genus, resolution_estimation, long_lat, good_image_drone_rgb, bad_image_drone_rgb } from "../assets/images";
 
-export const backendURL = "http://127.0.0.1:8000";
+export const backendURL = import.meta.env.SERVER_IP;
 
 export const helpLinks = [
   {
