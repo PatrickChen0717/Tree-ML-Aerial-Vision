@@ -10,7 +10,7 @@ const MainSection = ({ item }) => {
         <div className="flex flex-col lg:flex-row gap-4 p-8 lg:p-12 items-center">
 
           {/* Text Section */}
-          <div className="flex flex-col gap-6 text-tertiary w-full lg:w-1/2">
+          <div className="flex flex-col gap-6 text-tertiary w-full lg:w-2/3">
             {item.title && (
               <h2 className="text-4xl font-extrabold leading-tight text-center lg:text-left">
                 {item.title}

@@ -24,13 +24,13 @@ export const helpLinks = [
 
 export const help = [
   {
-    title: "Help for Drone RGB Classification",
+    title: "Help for Image Upload Classification",
     body: 'Let us teach you how to take better drone images and improve the results our app can produce for you. We can also explain to you what the options on for drone RGB classification do and walk you through how to get started classifying your own images!',
     link: '/help/droneRGB',
     icon: drone_icon_green,
   },
   {
-    title: 'Help for Satellite Classification',
+    title: 'Help for Coordinates Input Classification',
     body: 'Let us explain to you what the options on for Satellite classification do and walk you through how to get started classifying any area of your choosing!',
     link: '/help/satellite',
     icon: coords,

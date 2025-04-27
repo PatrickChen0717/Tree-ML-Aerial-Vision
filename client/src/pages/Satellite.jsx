@@ -96,8 +96,8 @@ const Satellite = ({ setAlert }) => {
       ) : (
         <div className='w-min h-min flex flex-col justify-center'>
           <div className='self-center whitespace-nowrap group ease-in-out duration-300 flex flex-col justify-center gap-16'>
-            <div className='flex text-4xl text-white font-bold h-min w-min self-center z-10 ease-in-out duration-500 pointer-events-none whitespace-normal text-center'>
-              SATELLITE
+          <div className='flex text-4xl text-white font-bold whitespace-nowrap h-min w-min self-center z-10 ease-in-out duration-500 pointer-events-none'>
+              COORDINATES INPUT
             </div>
             <div className='flex flex-col gap-6'>
               <Toggle setState={setSpeciesGenus} state={speciesGenus} option1={'Species'} option2={'Genus'} />

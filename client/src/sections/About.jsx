@@ -34,7 +34,7 @@ const About = () => {
         <div className='pt-6'>
           <TextButton 
             text="Discover More" 
-            onClick={() => window.location.href = "https://github.com/PatrickChen0717/Tree-ML-Aerial-Vision"} 
+            onClick={() => window.open("https://github.com/PatrickChen0717/Tree-ML-Aerial-Vision", "_blank")}
           />
         </div>
 

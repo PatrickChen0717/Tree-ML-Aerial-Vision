@@ -29,7 +29,6 @@ The following testing results are obtained from the test set, which represents 1
 
 The images show the per-class performance (F1 Score and Precision) for both the genus and species classification models.
 
-
 ## Classes
 
 | Genus | Species |
@@ -51,6 +50,29 @@ The images show the per-class performance (F1 Score and Precision) for both the 
 | | **Abies_alba** (Silver fir) |
 | | **Pinus_strobus** (Eastern white pine) |
 | | **Pinus_nigra** (Black pine) |
+
+## How to Run
+
+### 1. Start the Frontend
+Open a terminal and run:
+
+```bash
+cd client
+npm install
+npm run dev
+```
+### 2. Start the Backend Server
+Open another terminal and run:
+```bash
+cd server
+python server.py
+```
+
+## Known Limitations
+
+1. **Imbalanced Dataset** : **Tilia**, **Prunus**, and **Populus** were excluded from training due to their limited number of samples in the dataset.
+
+2. **Fixed Tile Size** : Each tile is fixed at 304×304 pixels, covering approximately 50×50 cm² of ground area. Attempts to reduce the tile size by slicing the training images resulted in a noticeable increase in false positives. This is likely because smaller tiles lose important detail and spatial context, making different tree classes harder to distinguish. Therefore, unless additional training data becomes available, reducing the tile size is not feasible.
 
 
 ## References
