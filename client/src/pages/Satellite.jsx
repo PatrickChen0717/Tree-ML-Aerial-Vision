@@ -101,8 +101,12 @@ const Satellite = ({ setAlert }) => {
             </div>
             <div className='flex flex-col gap-6'>
               <Toggle setState={setSpeciesGenus} state={speciesGenus} option1={'Species'} option2={'Genus'} />
-              <NumberInput numberInput={lat} setNumberInput={setLat} title={'Enter a latitude:'} />
-              <NumberInput numberInput={long} setNumberInput={setLong} title={'Enter a longitude:'} />
+
+              {/* New horizontal layout for Latitude + Longitude */}
+              <div className='flex flex-row flex-wrap gap-4 justify-center'>
+                <NumberInput numberInput={lat} setNumberInput={setLat} title={'Enter a latitude:'} />
+                <NumberInput numberInput={long} setNumberInput={setLong} title={'Enter a longitude:'} />
+              </div>
             </div>
             <button onClick={() => uploadFile()} className='self-center bg-black/50 hover:bg-white border-white border-[3px] text-white hover:text-primary text-xl font-semibold ease-in-out duration-300 px-4 py-2 rounded-3xl shadow-3xl hover:scale-125'>
               CLASSIFY

@@ -24,12 +24,6 @@ export const helpLinks = [
 
 export const help = [
   {
-    title: 'Help for Phone Classification',
-    body: 'Let us teach you how to take better pictures and improve the results our app can produce for you. We can also explain to you what the options on for phone classification do and walk you through how to get started classifying your own pictures!',
-    link: '/help/ground',
-    icon: phone_icon_green,
-  },
-  {
     title: "Help for Drone RGB Classification",
     body: 'Let us teach you how to take better drone images and improve the results our app can produce for you. We can also explain to you what the options on for drone RGB classification do and walk you through how to get started classifying your own images!',
     link: '/help/droneRGB',
@@ -41,84 +35,8 @@ export const help = [
     link: '/help/satellite',
     icon: coords,
   },
-  {
-    title: 'Help for Drone RGB Segmentation',
-    body: 'Let us explain to you what the drone segmentation does and walk you through how to get started segmenting any drone RGB image!',
-    link: '/help/droneSegmentation',
-    //icon: , #not sure what icons to use
-  }
 ]
 
-export const helpGround = [
-  {
-    title: 'Steps To Upload And Classify Phone Images',
-    sections: [
-      {
-        title: 'Step 1: Click "Select File" and choose an image',
-        body: 'Once you click "Select File", you will see the options to upload a file from your device. If you are on a phone, you may also see the option to take a picture. After selecting an image or taking a picture, a preview of your image should be visible to let you know it is uploaded. For tips on how to take good photos, refer to the section below.',
-      },
-      {
-        title: 'Step 2: Set your Toggles',
-        body: "Next, set your toggles. Choose whether you want your image to be classified by species or genus, and against our full library of species or genus, or just the subset to obtain better results.",
-      },
-      {
-        title: 'Step 3: Click "Classify Image" and View Your Results',
-        body: 'Once you have uploaded your image and set your toggles, click "Classify Image". After a short loading process, the results from the classification will be available. You can check that the tree was properly detected in the image and you can also see the probabilities of the species of genuses in our circular chart.',
-      },
-    ]
-  },
-  {
-    title: 'How To Take Good Pictures',
-    sections: [
-      {
-        title: 'What Do Good Pictures Look Like?',
-        body: "For phone classification, our app uses the the tree bark to predict the species or genus of the tree. This means that in order an accurate classification, the images you upload should have a tree trunk in clear view. The ideal image is taken between roughly 20cm and 60cm away, without any zoom or blurriness.",
-        image: good_example,
-      },
-      {
-        title: 'Image Contents and Cropping',
-        body: "The image above shows an example of what a good image looks like. Notice how the trunk of the tree is in clear view, with no other nearby tree trunks in the frame. Our app does it's best to identify the tree trunk in the image so that we can predict the species or genus, but the more of the image that is filled by the tree trunk the better.",
-      },
-      {
-        title: 'Image Quality',
-        body: "It is also helpful to upload as high resolution as possible up to 2000x4000 pixels. Our training images were around this quality, and images will be resized in order to capture the same spatial patterns as the training images. Low resolution photos, despite the resizing, tend to get less accurate prediction results.",
-      },
-    ]
-  },
-  {
-    title: 'Bad Pictures and What To Avoid',
-    sections: [
-      {
-        body: "A bad picture can seriously affect the quality of the results our app can produce. Below we will try to point out a few thing to avoid.",
-      },
-      {
-        title: 'Busy Pictures With Multiple Trees',
-        body: "One thing to avoid when taking pictures to upload, is taking pictures with several trees and no clear main subject. If there is no clear main subject in the image, then there is a chance that the tree that will be classified is not the one you are wanting to be classified. To avoid this, try to have one clear main tree in the middle of the frame, and if any other trees are in the picture make sure they are clearly in the background.",
-        image: bad_example_busy,
-      },
-      {
-        title: 'Trees That Are Too Small',
-        body: "Another thing to avoid when taking pictures to upload, is taking pictures from too far away or of the whole tree. Remember, our app only uses the trunk of the tree to classify its species or genus. Therefore, to maximize the probability of a correct classification, try to take a close up picture of just the trunk of the tree, where the width of the tree is as close to the full width of the picture as possible.",
-        image: bad_example_size,
-      },
-    ]
-  },
-  {
-    title: 'Phone Classification Toggles and What They Do',
-    sections: [
-      {
-        title: 'Species and Genus Toggle',
-        body: "The species and genus toggle is used so that the user can choose the level of classification. When the toggle is to the left, the tree will be classified by species. When the toggle is to the right, the uploaded image will be classified by genus.",
-        image: toggle_genus,
-      },
-      {
-        title: 'Full and Partial Toggle',
-        body: "The full and partial toggle is used for when users want a more accurate classification, however, this comes at the cost of a minimized subset of classes. When the toggle is to the left, it is set to full, and images will be classified against our full library of species or genus. When the toggle is to the right, it is set to partial, and uploaded images will have a higher likelihood of correct classification ONLY if the species or genus exists in the 'partial' subset.",
-        image: toggle_partial,
-      },
-    ]
-  }
-]
 
 export const helpDroneRGB = [
   {
@@ -245,38 +163,15 @@ export const helpDroneSeg = [
   },
 ]
 export const mainUploadLinks = [
-  // {
-  //   label: 'PHONE',
-  //   link: '/upload/phone',
-  //   icon: phone_icon_green
-  // },
   {
     label: 'Image Upload',
     link: '/upload/drone/RGB',
     icon: drone_icon_green
   },
   {
-    label: 'Coord-based Capture',
+    label: 'Coordinates Input',
     link: '/upload/satellite',
     icon: satellite_icon_green
-  },
-]
-
-export const aboutKorotuSections = [
-  {
-    title: '',
-    body: "Korotu Technology was founded by Sean and Agata Rudd who bring more than 35 years experience in technology, finance and sustainability in North America, Europe and Asia Pacific.",
-    image: ''
-  },
-  {
-    title: '',
-    body: "Founder and CEO Sean is an experienced financial technology leader, whose career includes over fifteen years at Accenture leading business and technology strategy in financial services and as global head of payments strategy. He has also worked extensively in the software sector with both startups and established leaders in product management, engineering and client service. Originally from New Zealand, he has a lifelong passion for the outdoors.",
-    image: ''
-  },
-  {
-    title: '',
-    body: "Co-Founder Agata is a sustainability advocate and a social entrepreneur. She is a founder of Toronto's first reusable takeout container program, a former board member for the Alternatives Journal, and a development manager for the Escarpment Biosphere Conservancy (largest Ontario focused land trust). She worked to tackle educational inequalities in the UK and in a series of corporate HR roles at Grant Thornton and the Financial Conduct Authority. She's a passionate cycling advocate, capoeirista, hiker, camper and whatever else allows her to make the most of the outdoors with Sean and their toddler.",
-    image: ''
   },
 ]
 
@@ -295,14 +190,4 @@ export const droneOptions = [
     link: '/upload/drone/RGB',
     icon: grid_icon
   },
-  // {
-  //   label: 'SEGMENTATION',
-  //   link: '/upload/drone/seg',
-  //   icon: tree_icon
-  // },
-  // {
-  //   label: 'LiDAR CLASSIFICATION',
-  //   link: '/upload/drone/lidar',
-  //   icon: lidar_icon
-  // },
 ]

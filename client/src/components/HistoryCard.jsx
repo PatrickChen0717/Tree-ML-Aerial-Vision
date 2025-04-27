@@ -5,10 +5,8 @@ import { garbage_icon } from '../assets/icons'
 
 const HistoryCard = ({ item, setSelected, getHistory }) => {
   const types = {
-    "ground": "Phone Classification",
     "drone_rgb": "Drone RGB Classification",
     "drone_coord": "Satellite Classification", 
-    "drone_segment": "Drone Segmented Classification", 
   }
 
   const formatTimestamp = (timestamp) => {

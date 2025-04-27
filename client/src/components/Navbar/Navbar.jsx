@@ -1,152 +1,93 @@
 import React, { useState, useEffect } from 'react';
-import { Korotu_Logo_Icon } from '../../assets/images';
-import { camera_icon_green, phone_icon_green, drone_icon_green, satellite_icon_green, login, create_account, logout, accounts, coords, help } from '../../assets/icons';
+import { Logo_Icon } from '../../assets/images';
+import { camera_icon_green, login, create_account, logout, accounts, help } from '../../assets/icons';
 import { backendURL, mainUploadLinks } from '../../constants';
 
 const Navbar = () => {
-  const [dropdownCamera, setDropdownCamera] = useState(false);
-  const [dropdownMenu, setDropdownMenu] = useState(false);
-  const [signedIn, setSignedIn] = useState(false)
-
-  const closeDropdowns = () => {
-    setDropdownCamera(false);
-  }
+  const [signedIn, setSignedIn] = useState(false);
 
   const checkLogin = async () => {
     try {
-      const response = await fetch(backendURL + '/api/auth/check', {
+      const response = await fetch(`${backendURL}/api/auth/check`, {
         method: 'GET',
         credentials: 'include'
       });
-
       const result = await response.json();
-
-      if (result) {
-        setSignedIn(result.logged_in)
-      }
+      setSignedIn(result?.logged_in || false);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   const logMeOut = async () => {
     try {
-      const response = await fetch(backendURL + '/api/logout', {
+      await fetch(`${backendURL}/api/logout`, {
         method: 'POST',
         credentials: 'include'
       });
-
-      if (!response.ok) {
-        setAlert({ title: 'Logout failed', body: "There was an error while trying to log you out. Please try again." });
-      } else {
-        window.location.href = "/";
-      }
+      window.location.href = "/";
     } catch (error) {
-      setAlert({ title: 'Logout failed', body: "There was an error while trying to log you out. Please try again." });
-    } finally {
-      setLoading(false);
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    checkLogin()
-  }, [])
-
+    checkLogin();
+  }, []);
 
   return (
-    <div className='w-full p-4 sticky top-0 left-0 flex justify-center z-50 mb-4 lg:mb-8'>
-      <div onClick={() => closeDropdowns()} className={`${dropdownCamera && "pointer-events-auto"} pointer-events-none w-screen h-screen absolute top-0 left bg-none`} />
-      <div className='w-full max-w-[720px] h-min min-h-16 rounded-[24px] shadow-2xl relative overflow-hidden bg-white'>
+    <div className='w-full sticky top-0 left-0 z-50 bg-white/90 backdrop-blur-md shadow-md py-2'>
+      <div className='max-w-[1152px] mx-auto flex items-center justify-between px-4'>
 
-        <div className={`${dropdownMenu ? 'h-48 pt-24 lg:pt-20' : 'h-0'} w-full bg-white rounded-[24px] ease-in-out duration-300 flex flex-row justify-between overflow-hidden items-start px-4 lg:px-8`}>
+        {/* Left: Logo */}
+        <button onClick={() => window.location.href = '/'} className='flex items-center gap-2 hover:scale-105 transition'>
+          <img 
+            src={Logo_Icon} 
+            alt="Logo" 
+            className="h-9 w-9 opacity-100 brightness-75 hue-rotate-150" 
+          />
+
+          <span className='text-tertiary font-bold text-xl hidden lg:block'>Tree Aerial Vision</span>
+        </button>
+
+        {/* Center: Nav Links */}
+        <div className='hidden lg:flex gap-8 items-center text-tertiary font-semibold text-base'>
+          {mainUploadLinks.map((link, i) => (
+            <button key={i} onClick={() => window.location.href = link.link} className='hover:text-tertiary transition'>
+              {link.label}
+            </button>
+          ))}
+          {signedIn && (
+            <button onClick={() => window.location.href = '/accounts/dashboard'} className='hover:text-tertiary transition'>
+              My Account
+            </button>
+          )}
+          <button onClick={() => window.location.href = '/help'} className='hover:text-tertiary transition'>
+            Help
+          </button>
+        </div>
+
+        {/* Right: Auth */}
+        <div className='flex items-center gap-4'>
           {signedIn ? (
-            <>
-              <button onClick={() => {
-                logMeOut()
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={logout} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                LOGOUT
-              </button>
-              <button onClick={() => {
-                closeDropdowns();
-                window.location.href = '/accounts/dashboard';
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={accounts} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                MY ACCOUNT
-              </button>
-              <button onClick={() => {
-                closeDropdowns();
-                window.location.href = '/help';
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={help} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                HELP
-              </button>
-            </>
+            <button onClick={logMeOut} className='px-4 py-2 rounded-full bg-primary text-white hover:bg-tertiary transition'>
+              Logout
+            </button>
           ) : (
             <>
-              <button onClick={() => {
-                closeDropdowns();
-                window.location.href = '/login';
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={login} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                LOGIN
+              <button onClick={() => window.location.href = '/login'} className='px-4 py-2 rounded-full bg-tertiary text-white hover:bg-primary transition'>
+                Login
               </button>
-              <button onClick={() => {
-                closeDropdowns();
-                window.location.href = '/accounts/create';
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={create_account} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                CREATE ACCOUNT
-              </button>
-              <button onClick={() => {
-                closeDropdowns();
-                window.location.href = '/help';
-              }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-                <img src={help} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-                HELP
+              <button onClick={() => window.location.href = '/accounts/create'} className='px-4 py-2 rounded-full border border-tertiary text-tertiary hover:bg-primary hover:text-white transition'>
+                Create Account
               </button>
             </>
           )}
         </div>
 
-        <div className={`${dropdownCamera ? 'h-48 pt-24 lg:pt-20' : 'h-0'} w-full bg-white rounded-[24px] ease-in-out duration-300 flex flex-row justify-between px-8 lg:px-4 overflow-hidden items-start`}>
-          {mainUploadLinks.map((link, i) => (
-            <button key={link + i} onClick={() => {
-              closeDropdowns();
-              window.location.href = link.link;
-            }} className='flex flex-col text-primary self-start gap-2 hover:scale-110 ease-in-out duration-300 w-min text-xs lg:text-base text-center items-center justify-center flex-1'>
-              <img src={link.icon} className='h-6 w-6 lg:h-10 lg:w-10 self-center' />
-              {link.label}
-            </button>
-          ))}
-        </div>
-
-        <div className='bg-white rounded-[24px] h-16 w-full flex flex-row justify-between absolute top-0 left-0'>
-          <button onClick={() => {
-            setDropdownMenu(false);
-            setDropdownCamera(!dropdownCamera);
-          }} className='pl-7 hover:scale-110 ease-in-out duration-300'>
-            <img src={camera_icon_green} className='h-10 w-10 lg:h-14 lg:w-14' />
-          </button>
-          <button onClick={() => {
-            closeDropdowns();
-            window.location.href = '/';
-          }} className='hover:scale-110 ease-in-out duration-300'>
-            <img src={Korotu_Logo_Icon} className='h-14 w-14' />
-          </button>
-          <button onClick={() => {
-            setDropdownCamera(false);
-            setDropdownMenu(!dropdownMenu);
-          }} className='rounded-full flex flex-col justify-center gap-[10px] lg:gap-3 pr-8  hover:scale-110 ease-in-out duration-300'>
-            <div className='bg-primary w-8 h-[2px] lg:w-12 lg:h-[3px] self-center rounded-xl' />
-            <div className='bg-primary w-8 h-[2px] lg:w-12 lg:h-[3px] self-center rounded-xl' />
-            <div className='bg-primary w-8 h-[2px] lg:w-12 lg:h-[3px] self-center rounded-xl' />
-          </button>
-        </div>
-
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,5 +1,5 @@
 import Korotu_Logo_Full from './Korotu_Logo_Full.png';
-import Korotu_Logo_Icon from './Korotu_Logo_Icon.png';
+import Logo_Icon from './tree.png';
 import good_example from './good_example.jpg';
 import bad_example_size from './bad_example_size.jpg';
 import bad_example_busy from './bad_example_busy.jpg';
@@ -13,7 +13,7 @@ import bad_image_drone_rgb from './bad_image_drone_rgb.png'
 
 export {
   Korotu_Logo_Full,
-  Korotu_Logo_Icon,
+  Logo_Icon,
   good_example,
   bad_example_size,
   bad_example_busy,

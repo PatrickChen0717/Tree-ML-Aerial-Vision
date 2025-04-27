@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Main, UploadDroneRGB, Login, CreateAccount, Dashboard, Satellite, Help, History, Drone } from './pages';
 import { Navbar, Footer, Alert } from './components';
-import { help, helpGround, helpDroneRGB, helpCoordinates } from './constants';
+import { help, helpDroneRGB, helpCoordinates } from './constants';
 
 const App = () => {
   const [alert, setAlert] = useState(null);
@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/upload/satellite" element={<Satellite setAlert={setAlert} />}></Route>
 
             <Route path="/help" element={<Help title={"What do you need help with?"} list={help} />}></Route>
-            <Route path="/help/ground" element={<Help title={"Help for Phone Classification"} list={helpGround} />}></Route>
+            {/* <Route path="/help/ground" element={<Help title={"Help for Phone Classification"} list={helpGround} />}></Route> */}
             <Route path="/help/droneRGB" element={<Help title={"Help for Drone RGB Classification"} list={helpDroneRGB} />}></Route>
             <Route path="/help/satellite" element={<Help title={"Help for Satellite Classification"} list={helpCoordinates} />}></Route>
 

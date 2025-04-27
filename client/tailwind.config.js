@@ -22,39 +22,37 @@ export default {
     },
     extend: {
       fontFamily: {
-        palanquin: ['Palanquin', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif'],
+        palanquin: ['Poppins', 'sans-serif'],  // Changed font
+        montserrat: ['Raleway', 'sans-serif'], // Changed font
       },
       colors: {
-        "primary": "#357960",
+        "primary": "#81cc70",
         'secondary': "#1e4436",
-        "tertiary": "#4cae8a",
+        "tertiary": "#357960",
+        "accent": "#469e7e",
       },
       boxShadow: {
-        '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
+        '3xl': '0 20px 60px rgba(0, 0, 0, 0.2)', // Stronger shadow
       },
       backgroundImage: {
-        'hero': "url('assets/images/collection-background.png')",
+        'hero': "url('assets/images/new-hero-background.png')", // Assume you change bg image
       },
       screens: {
-        "wide": "1440px"
+        "wide": "1440px",
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'translateY(-25%)' },
-          '50%': { transform: 'translateY(0)' },
+          '0%, 100%': { transform: 'rotate(-5deg)' }, // Different wiggle effect
+          '50%': { transform: 'rotate(5deg)' },
         },
         dropBounce: {
-          '0%, 100%': { 
-            transform: 'translateY(0%) rotate(45deg)'
-          },
-          '50%': { 
-            transform: 'translateY(-25%) rotate(45deg)'
-          }
-        }
+          '0%, 100%': { transform: 'translateY(0%) rotate(0deg)' },
+          '50%': { transform: 'translateY(-15%) rotate(0deg)' },
+        },
       },
       animation: {
-        dropBounce: 'dropBounce 1s ease-in-out infinite',
+        wiggle: 'wiggle 1s ease-in-out infinite',   // Added animated wiggle
+        dropBounce: 'dropBounce 1.5s ease-in-out infinite',
       }
     },
   },
