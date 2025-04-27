@@ -1,74 +1,59 @@
 # Tree-ML-Aerial-Vision
-## Overview:
+
+## Deployment
+Feel free to try the deployed version: 
+
+## Overview
 This project trains a machine learning model to classify trees at the canopy level based on aerial images with 15–20 cm pixel resolution. The model performs classification for both **genus** (12 classes) and **species** (17 classes) categories. It uses a **ResNet-18** backbone architecture and is based on methodologies described in the **TreeSatAI** paper.
 
 The training pipeline in this project is modified from the original approach. Specifically, several minority classes are removed, oversampling is applied to address class imbalance, and IBW is also used during training to further balance the learning process. Additionally, data augmentation techniques such as random brightness and hue-saturation adjustments are introduced to mitigate lighting variations in the input images. 
 
 Other techniques, such as a multiresolution pyramid, were also implemented to improve generalization across varying input resolutions. However, this method was ultimately discarded due to limited improvement in generalizability testing and convergence issues during training.
 
+## Model Performance
+The following testing results are obtained from the test set, which represents 10% of the total dataset.
 
-<div style="display: flex; justify-content: space-between;">
+| Metric          | Genus  | Species |
+|:----------------|:------:|:-------:|
+| Mean F1 Score   | 0.643  | 0.683   |
+| Mean Precision  | 76.8%  | 78.0%   |
 
-<!-- Genus Table -->
-<table>
-  <thead>
-    <tr>
-      <th>Genus (Original)</th>
-      <th>English Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Abies</td><td>Fir</td></tr>
-    <tr><td>Acer</td><td>Maple</td></tr>
-    <tr><td>Alnus</td><td>Alder</td></tr>
-    <tr><td>Betula</td><td>Birch</td></tr>
-    <tr><td>Cleared</td><td>Cleared</td></tr>
-    <tr><td>Fagus</td><td>Beech</td></tr>
-    <tr><td>Fraxinus</td><td>Ash</td></tr>
-    <tr><td>Larix</td><td>Larch</td></tr>
-    <tr><td>Picea</td><td>Spruce</td></tr>
-    <tr><td>Pinus</td><td>Pine</td></tr>
-    <tr><td>Pseudotsuga</td><td>Douglas-fir</td></tr>
-    <tr><td>Quercus</td><td>Oak</td></tr>
-  </tbody>
-</table>
+<div align="center">
+  
+  <img src="docs/F1_Score_Genus.png" alt="F1 Score Genus" width="300"/>
+  <img src="docs/F1_Score_Species.png" alt="F1 Score Species" width="300"/>
 
-<!-- Spacer -->
-<div style="width: 40px;"></div>
-
-<!-- Species Table -->
-<table>
-  <thead>
-    <tr>
-      <th>Species (Original)</th>
-      <th>English Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Pinus_sylvestris</td><td>Scots pine</td></tr>
-    <tr><td>Fagus_sylvatica</td><td>European beech</td></tr>
-    <tr><td>Picea_abies</td><td>Norway spruce</td></tr>
-    <tr><td>Cleared</td><td>Cleared</td></tr>
-    <tr><td>Quercus_robur</td><td>English oak</td></tr>
-    <tr><td>Acer_pseudoplatanus</td><td>Sycamore maple</td></tr>
-    <tr><td>Betula_spec.</td><td>Birch species</td></tr>
-    <tr><td>Pseudotsuga_menziesii</td><td>Douglas fir</td></tr>
-    <tr><td>Fraxinus_excelsior</td><td>European ash</td></tr>
-    <tr><td>Quercus_petraea</td><td>Sessile oak</td></tr>
-    <tr><td>Alnus_spec.</td><td>Alder species</td></tr>
-    <tr><td>Quercus_rubra</td><td>Northern red oak</td></tr>
-    <tr><td>Larix_kaempferi</td><td>Japanese larch</td></tr>
-    <tr><td>Larix_decidua</td><td>European larch</td></tr>
-    <tr><td>Abies_alba</td><td>Silver fir</td></tr>
-    <tr><td>Pinus_strobus</td><td>Eastern white pine</td></tr>
-    <tr><td>Pinus_nigra</td><td>Black pine</td></tr>
-  </tbody>
-</table>
-
+  <img src="docs/Precision_Genus.png" alt="Precision Genus" width="300"/>
+  <img src="docs/Precision_Species.png" alt="Precision Species" width="300"/>
 </div>
 
+The images show the per-class performance (F1 Score and Precision) for both the genus and species classification models.
 
-## References:
+
+## Classes
+
+| Genus | Species |
+|:-----|:--------|
+| **Abies** (Fir) | **Pinus_sylvestris** (Scots pine) |
+| **Acer** (Maple) | **Fagus_sylvatica** (European beech) |
+| **Alnus** (Alder) | **Picea_abies** (Norway spruce) |
+| **Betula** (Birch) | **Cleared** (Cleared) |
+| **Cleared** (Cleared) | **Quercus_robur** (English oak) |
+| **Fagus** (Beech) | **Acer_pseudoplatanus** (Sycamore maple) |
+| **Fraxinus** (Ash) | **Betula_spec.** (Birch species) |
+| **Larix** (Larch) | **Pseudotsuga_menziesii** (Douglas fir) |
+| **Picea** (Spruce) | **Fraxinus_excelsior** (European ash) |
+| **Pinus** (Pine) | **Quercus_petraea** (Sessile oak) |
+| **Pseudotsuga** (Douglas-fir) | **Alnus_spec.** (Alder species) |
+| **Quercus** (Oak) | **Quercus_rubra** (Northern red oak) |
+| | **Larix_kaempferi** (Japanese larch) |
+| | **Larix_decidua** (European larch) |
+| | **Abies_alba** (Silver fir) |
+| | **Pinus_strobus** (Eastern white pine) |
+| | **Pinus_nigra** (Black pine) |
+
+
+## References
 Paper:
 
 > Ahlswede, S., Schulz, C., Gava, C., Helber, P., Bischke, B., Förster, M., Arias, F., Hees, J., Demir, B., and Kleinschmit, B.: TreeSatAI Benchmark Archive: A multi-sensor, multi-label dataset for tree species classification in remote sensing, Earth Syst. Sci. Data Discuss. [preprint], https://doi.org/10.5194/essd-2022-312, in review, 2022. 
