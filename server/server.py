@@ -18,6 +18,12 @@ import logging
 import uuid # For unique temporary filenames
 import numpy as np
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+from pathlib import Path
+env_path = Path(__file__).resolve().parents[2] / '.env'
+load_dotenv(dotenv_path=env_path)
+
+SERVER_IP = os.getenv('SERVER_IP')
 
 # =======================
 # Logging Setup (Basic)
@@ -45,7 +51,7 @@ CORS(app, resources={
         "origins": [
             "http://localhost:5173",
             "http://127.0.0.1:5173",
-            "http://20.151.90.189:8000",
+            f"http://{SERVER_IP}",
             "http://0.0.0.0:8000",
             "https://192.222.59.244:443"
         ],
@@ -318,7 +324,7 @@ class DeleteSingleHistoryResource(Resource):
     
 @app.after_request
 def after_request(response):
-    allowed_origins = ["http://localhost:5173", "http://127.0.0.1:5173", "http://20.151.90.189:8000", "http://0.0.0.0:8000", "http://127.0.0.1:8000"]
+    allowed_origins = ["http://localhost:5173", "http://127.0.0.1:5173", "http://20.151.90.189:8000", "http://0.0.0.0:8000", "http://127.0.0.1:8000", f"http://{SERVER_IP}"]
     request_origin = request.headers.get("Origin")
 
     if request_origin in allowed_origins:
