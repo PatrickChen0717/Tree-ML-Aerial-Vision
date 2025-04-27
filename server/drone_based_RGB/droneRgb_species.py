@@ -43,10 +43,7 @@ classes = ["Pinus_sylvestris",
             "Larix_decidua",
             "Abies_alba",
             "Pinus_strobus",
- #           "Populus_spec.",
             "Pinus_nigra",
- #           "Prunus_spec.",
- #           "Tilia_spec."
           ]
 
 classes_english = ["Scots pine",

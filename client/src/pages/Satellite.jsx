@@ -79,7 +79,7 @@ const Satellite = ({ setAlert }) => {
 
 
   return (
-    <div className='flex-1 flex flex-col justify-center items-center pb-12 lg:pb-16'>
+    <div className='flex-1 flex flex-col justify-center items-center pb-12 lg:pb-16 bg-gradient-to-b from-primary to-accent min-h-screen w-full'>
       {uploaded ? (
         loading ? (
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white'>

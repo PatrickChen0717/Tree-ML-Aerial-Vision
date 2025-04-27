@@ -34,7 +34,7 @@ const Main = () => {
           <div className="text-white text-lg font-semibold group-hover:text-tertiary transition">
             More Info
           </div>
-          <div className="flex justify-center items-center py-6">
+          <div className="flex justify-center items-center py-6 animate-dropBounce">
             <svg s
               className="w-8 h-8 text-white" 
               fill="none" 

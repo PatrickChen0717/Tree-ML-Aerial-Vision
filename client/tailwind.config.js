@@ -49,10 +49,15 @@ export default {
           '0%, 100%': { transform: 'translateY(0%) rotate(0deg)' },
           '50%': { transform: 'translateY(-15%) rotate(0deg)' },
         },
+        jump: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(+30%)' }, // Jump 50% upward
+        }
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',   // Added animated wiggle
         dropBounce: 'dropBounce 1.5s ease-in-out infinite',
+        jump: 'jump 2s infinite ease-in-out',
       }
     },
   },
