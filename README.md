@@ -53,7 +53,15 @@ The images show the per-class performance (F1 Score and Precision) for both the 
 
 ## How to Run
 
-### 1. Start the Frontend
+### 1. Set up Environment Variables
+Before running the project, create a `.env` file at the root directory with the following content:
+
+```env
+API_KEY=your_google_api_key_here
+SERVER_IP=your_server_ip_here
+```
+
+### 2. Start the Frontend
 Open a terminal and run:
 
 ```bash
@@ -61,7 +69,7 @@ cd client
 npm install
 npm run dev
 ```
-### 2. Start the Backend Server
+### 3. Start the Backend Server
 Open another terminal and run:
 ```bash
 cd server

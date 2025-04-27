@@ -33,7 +33,7 @@ export const help = [
     title: 'Help for Coordinates Input Classification',
     body: 'Let us explain to you what the options on for Satellite classification do and walk you through how to get started classifying any area of your choosing!',
     link: '/help/satellite',
-    icon: coords,
+    icon: satellite_icon_green,
   },
 ]
 
