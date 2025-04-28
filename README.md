@@ -2,7 +2,7 @@
 ![Tree Species Example](docs/header.png)
 
 ## Deployment
-Feel free to try the deployed version: 
+Feel free to try the deployed version: [website](https://378a-2604-3d08-4680-1236-5de0-2c17-c8e1-d465.ngrok-free.app/)
 
 ## Overview
 This project trains a machine learning model to classify trees at the canopy level based on aerial images with 15–20 cm pixel resolution. The model performs classification for both **genus** (12 classes) and **species** (17 classes) categories. It uses a **ResNet-18** backbone architecture and is based on methodologies described in the **TreeSatAI** paper.
@@ -59,7 +59,8 @@ Before running the project, create a `.env` file at the root directory with the 
 
 ```env
 API_KEY=your_google_api_key_here
-SERVER_IP=your_server_ip_here
+SERVER_IP=your_server_ip_here (EX: http://127.0.0.1:8000)
+VITE_SERVER_IP=same_as_above (EX: http://127.0.0.1:8000)
 ```
 
 ### 2. Start the Frontend
