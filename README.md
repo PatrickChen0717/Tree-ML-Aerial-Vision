@@ -1,4 +1,5 @@
 # Tree-ML-Aerial-Vision
+![Tree Species Example](docs/header.png)
 
 ## Deployment
 Feel free to try the deployed version: 
