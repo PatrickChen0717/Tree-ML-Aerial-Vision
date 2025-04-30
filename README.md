@@ -5,7 +5,13 @@
 Feel free to try the deployed version: [website](http://24.85.228.2:8000/)
 
 ## Demo
-Watch the [demo video](docs/demo_video.mp4)
+<!-- Watch the [demo video](docs/demo_video.mp4) -->
+<p align="center">
+  <a href="https://youtu.be/nSgPva1NBYY">
+    <img src="https://img.youtube.com/vi/nSgPva1NBYY/0.jpg" alt="Watch the demo video" />
+  </a>
+</p>
+
 
 ## Overview
 This project trains a machine learning model to classify trees at the canopy level based on aerial images with 15–20 cm pixel resolution. The model performs classification for both **genus** (12 classes) and **species** (17 classes) categories. It uses a **ResNet-18** backbone architecture and is based on methodologies described in the **TreeSatAI** paper.
