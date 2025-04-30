@@ -2,7 +2,7 @@
 ![Tree Species Example](docs/header.png)
 
 ## Deployment
-Feel free to try the deployed version: [website](https://5764-2604-3d08-4686-300-c51a-fb52-c7b6-fbca.ngrok-free.app/)
+Feel free to try the deployed version: [website](http://24.85.228.2:8000/)
 
 ## Overview
 This project trains a machine learning model to classify trees at the canopy level based on aerial images with 15–20 cm pixel resolution. The model performs classification for both **genus** (12 classes) and **species** (17 classes) categories. It uses a **ResNet-18** backbone architecture and is based on methodologies described in the **TreeSatAI** paper.
